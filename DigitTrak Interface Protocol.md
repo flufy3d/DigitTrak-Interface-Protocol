@@ -51,7 +51,7 @@ is successful or not.
     ```
      * ######explanation:  
   
-      device_status : the status of 'DigitTrak' hardware device.
+      device_status : the status of 'DigitTrak' hardware device.        
       0 : the initialization of 'DigitTrak' is ok and the connection is successful.  
       1 : the initialization of 'DigitTrak' is underway.   
       2 : the connection is broken     
@@ -68,7 +68,7 @@ These messages descript the process of hitting a golf ball
     ```
      * ######explanation: 
    
-      state : the state of 'DigitTrak' monitoring spiking motion.
+      state : the state of 'DigitTrak' monitoring spiking motion.      
       0 : 'DigitTrak' is wait to detect a golf ball.  
       1 : 'DigitTrak' has already detected a golf ball and it's stable and effective.   
       2 : hit golf ball message.     
