@@ -97,7 +97,7 @@ the Client receives the hitting ball completely message.
   
       type : the value is fixed at 0,indicating it's a ball data message.  
       data : it's permanent.
-      backspin : the value of back spin,Unit is 'rpm'(short for round per minute).
+      backspin : the value of back spin,Unit is 'rpm'(short for round per minute).   
       sidespin : the value of side spin,Unit is 'rpm'.  
       pitch : the anle that flying trajectory with ground when ball rising up,Unit is '°'.     
       yaw : yaw angle,Unit is also '°'. when left ,the value is negative and when right,the value is positive.   
