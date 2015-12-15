@@ -112,8 +112,8 @@ the Client receives the hitting ball completely message.
            {
             club_velocity : 13.2,
             club_horiz : 0.54,
-            club_vert : 16,
-            ball_offset : -0.02
+            club_vert : 10.20,
+            ball_offset : 10.214
           }
    }
   ```  
@@ -121,10 +121,13 @@ the Client receives the hitting ball completely message.
    
       type : the value is fixed at 1,indicating it's a club data message.    
       data : it's permanent.   
-      club_velocity : flying speed of club, Unit is 'm/s'.     
-      club_horiz :    
-      club_vert :   
-      ball_offset :                                         
+      club_velocity : flying speed of club, Unit is 'm/s'.  
+      club_horiz : the offset in horizontal     
+      club_vert : the offset in vertical    
+      ball_offset : the vector of the above two parameters  
+      
+***we assume the club surface as a coordinate system, the origin is the center of club surface(see figure below)***
+     
 ![](https://raw.githubusercontent.com/flufy3d/DigitTrak-Interface-Protocol/master/image/coordinate.png)
  
     
