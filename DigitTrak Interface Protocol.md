@@ -1,4 +1,4 @@
-![](https://github.com/flufy3d/dgserver/blob/master/image/digitgolf.png)
+![](https://raw.githubusercontent.com/flufy3d/DigitTrak-Interface-Protocol/master/image/digitgolf.png)
 ##DigitTrak Interface Protocol
 
 This document provides a description of the communication between 'DigitTrak' Hardware Device 
@@ -125,7 +125,7 @@ the Client receives the hitting ball completely message.
       club_horiz :    
       club_vert :   
       ball_offset :                                         
-![](https://github.com/flufy3d/dgserver/blob/master/image/coordinate.png)
+![](https://raw.githubusercontent.com/flufy3d/DigitTrak-Interface-Protocol/master/image/coordinate.png)
  
     
     
