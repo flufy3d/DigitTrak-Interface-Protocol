@@ -102,7 +102,7 @@ the Client receives the hitting ball completely message.
       pitch : the anle that flying trajectory with ground when ball rising up,Unit is '°'.     
       yaw : yaw angle,Unit is also '°'. when left ,the value is negative and when right,the value is positive.   
       velocity : flying speed of ball ,Unit is 'm/s'. 
-      confidence : The probability of rotation,it's a percentage value.For example: 0.9,that is 90%.   
+      confidence : The reliability of the value of 'backspin' and 'sidespin',if we use a ball with mark,the confidence maybe 0.9,otherwise the confidence  may be less. 
     
      * ######club data message type 
   ```     
