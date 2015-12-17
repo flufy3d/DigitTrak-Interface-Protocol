@@ -101,7 +101,7 @@ the Client receives the hitting ball completely message.
       sidespin : the value of side spin,Unit is 'rpm'.  
       pitch : the anle that flying trajectory with ground when ball rising up,Unit is '°'.     
       yaw : yaw angle,Unit is also '°'. when left ,the value is negative and when right,the value is positive.   
-      velocity : flying speed of ball ,Unit is 'm/s'. 
+      velocity : flying speed of ball ,Unit is 'm/s'.           
       confidence : The reliability of the value of 'backspin' and 'sidespin',if we use a ball with mark,the confidence maybe 0.9,otherwise the confidence  may be less. 
     
      * ######club data message type 
