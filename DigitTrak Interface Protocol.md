@@ -69,7 +69,7 @@ These messages descript the process of hitting a golf ball
      * ######explanation: 
    
       state : the state of 'DigitTrak' monitoring spiking motion.      
-      0 : 'DigitTrak' is wait to detect a golf ball.  
+      0 : 'DigitTrak' is waiting to detect a golf ball.  
       1 : 'DigitTrak' has already detected a golf ball and it's stable and effective.   
       2 : hit golf ball message.     
       3 : accomplish hitting motion message.   
