@@ -63,7 +63,7 @@ These messages descript the process of hitting a golf ball
    * ######message type:  
     ```
     {
-       state : 0   // value can be 0 or 1 or 2 or 3 or 4 
+       state : 0   // value can be 0 or 1 or 2 or 3
     }
     ```
      * ######explanation: 
@@ -73,7 +73,6 @@ These messages descript the process of hitting a golf ball
       1 : 'DigitTrak' has already detected a golf ball and it's stable and effective.   
       2 : hit golf ball message.     
       3 : accomplish hitting motion message. 
-      4 : wait to set standby
 
   * #####hit golf ball data messages  
 The data includes ball data and club data.These two messages is sent to Client during the period of hitting ball before 
