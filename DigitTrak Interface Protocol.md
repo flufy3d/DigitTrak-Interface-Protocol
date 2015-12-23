@@ -46,7 +46,7 @@ is successful or not.
    * ######message type:   
     ```
     {
-       device_status : 0   // value can be 0 or 1 or 2 or 3  
+       device_status : 0   // value can be 0 or 1 or 2  
     }
     ```
      * ######explanation:  
@@ -54,8 +54,7 @@ is successful or not.
       device_status : the status of 'DigitTrak' hardware device.        
       0 : the initialization of 'DigitTrak' is ok and the connection is successful.  
       1 : the initialization of 'DigitTrak' is underway.   
-      2 : the connection is broken     
-      3 : inner exception   
+      2 : inner exception   
 
   * #####spiking motion related messages   
 These messages descript the process of hitting a golf ball   
