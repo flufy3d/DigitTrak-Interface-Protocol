@@ -74,8 +74,7 @@ These messages descript the process of hitting a golf ball
       3 : accomplish hitting motion message. 
 
   * #####hit golf ball data messages  
-The data includes ball data and club data.These two messages is sent to Client during the period of hitting ball before 
-the Client receives the hitting ball completely message.  
+This message includes golf ball's 'velocity','yaw','pitch' and so on. This message is sent to Client during the period between 'hit golf ball message' and 'accomplish hitting motion message' 
 
     * ######ball data message type  
     ```     
@@ -93,7 +92,7 @@ the Client receives the hitting ball completely message.
     }
     ```  
      * ######explanation:  
-  
+      
       type : the value is fixed at 0,indicating it's a ball data message.  
       data : it's permanent.
       backspin : the value of back spin,Unit is 'rpm'(short for round per minute).   
@@ -117,7 +116,7 @@ the Client receives the hitting ball completely message.
    }
   ```  
      * ######explanation: 
-   
+      this message includes golf club's property, this message is sent to Client after sending 'accomplish hitting motion message',and       the delay time is 1s accurately.
       type : the value is fixed at 1,indicating it's a club data message.    
       data : it's permanent.   
       club_velocity : flying speed of club, Unit is 'm/s'.  
