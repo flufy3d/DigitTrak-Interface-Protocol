@@ -117,7 +117,8 @@ This message includes golf ball's 'velocity','yaw','pitch' and so on. This messa
   ```  
      * ######explanation:    
      
-      this message includes golf club's property, this message is sent to Client after sending 'accomplish hitting motion message',and       the delay time is 1s accurately.
+      this message includes golf club's property, this message is sent to Client after sending 'accomplish hitting motion message',and       the delay time is 1s accurately.     
+      
       type : the value is fixed at 1,indicating it's a club data message.    
       data : it's permanent.   
       club_velocity : flying speed of club, Unit is 'm/s'.  
