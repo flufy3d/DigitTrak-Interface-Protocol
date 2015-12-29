@@ -29,13 +29,13 @@ This type of message is used to control 'DigitTrak'.
     ```
   * ######explanation:
 
-      cmd : short for command.
+      cmd : short for command. </br>
        0  : setting the 'DigitTrak' to Standby state,the device begins to detect golf ball and monitor
-       spiking motion.
-       1  : suspend 'DigitTrak'.
-       2  : shutdown 'DigitTrak'.
-       3  : set putt mode.
-       4  : set swing mode.
+       spiking motion. </br>
+       1  : suspend 'DigitTrak'. </br>
+       2  : shutdown 'DigitTrak'. </br>
+       3  : set putt mode. </br>
+       4  : set swing mode. </br>
 
 * ###S2C
   The messages or events that Server sends to Client may be a little bit complex,but we can divide them into
@@ -53,10 +53,10 @@ is successful or not.
     ```
      * ######explanation:
 
-      device_status : the status of 'DigitTrak' hardware device.
-      0 : the initialization of 'DigitTrak' is ok and the connection is successful.
-      1 : the initialization of 'DigitTrak' is underway.
-      2 : inner exception
+      device_status : the status of 'DigitTrak' hardware device. </br>
+      0 : the initialization of 'DigitTrak' is ok and the connection is successful. </br>
+      1 : the initialization of 'DigitTrak' is underway. </br>
+      2 : inner exception </br>
 
   * #####spiking motion related messages
 These messages descript the process of hitting a golf ball
@@ -69,11 +69,11 @@ These messages descript the process of hitting a golf ball
     ```
      * ######explanation:
 
-      state : the state of 'DigitTrak' monitoring spiking motion.
-      0 : 'DigitTrak' is waiting to detect a golf ball.
-      1 : 'DigitTrak' has already detected a golf ball and it's stable and effective.
-      2 : hit golf ball message.
-      3 : accomplish hitting motion message.
+      state : the state of 'DigitTrak' monitoring spiking motion. </br>
+      0 : 'DigitTrak' is waiting to detect a golf ball. </br>
+      1 : 'DigitTrak' has already detected a golf ball and it's stable and effective. </br>
+      2 : hit golf ball message. </br>
+      3 : accomplish hitting motion message. </br>
 
   * #####hit golf ball data messages
 This message includes golf ball's 'velocity','yaw','pitch' and so on. This message is sent to Client during the period between 'hit golf ball message' and 'accomplish hitting motion message'
@@ -95,14 +95,14 @@ This message includes golf ball's 'velocity','yaw','pitch' and so on. This messa
     ```
      * ######explanation:
 
-      type : the value is fixed at 0,indicating it's a ball data message.
-      data : it's permanent.
-      backspin : the value of back spin,Unit is 'rpm'(short for round per minute).
-      sidespin : the value of side spin,Unit is 'rpm'.
-      pitch : the anle that flying trajectory with ground when ball rising up,Unit is '°'.
-      yaw : yaw angle,Unit is also '°'. when left ,the value is negative and when right,the value is positive.
-      velocity : flying speed of ball ,Unit is 'm/s'.
-      confidence : The reliability of the value of 'backspin' and 'sidespin',if we use a ball with mark,the confidence maybe 0.9,otherwise the confidence  may be less.
+      type : the value is fixed at 0,indicating it's a ball data message. </br>
+      data : it's permanent. </br>
+      backspin : the value of back spin,Unit is 'rpm'(short for round per minute). </br>
+      sidespin : the value of side spin,Unit is 'rpm'. </br>
+      pitch : the anle that flying trajectory with ground when ball rising up,Unit is '°'. </br>
+      yaw : yaw angle,Unit is also '°'. when left ,the value is negative and when right,the value is positive. </br>
+      velocity : flying speed of ball ,Unit is 'm/s'. </br>
+      confidence : The reliability of the value of 'backspin' and 'sidespin',if we use a ball with mark,the confidence maybe 0.9,otherwise the confidence  may be less. </br>
 
      * ######club data message type
   ```
@@ -121,12 +121,12 @@ This message includes golf ball's 'velocity','yaw','pitch' and so on. This messa
 
       this message includes golf club's property, this message is sent to Client after sending 'accomplish hitting motion message',and       the delay time is 1s accurately.
 
-      type : the value is fixed at 1,indicating it's a club data message.
-      data : it's permanent.
-      club_velocity : flying speed of club, Unit is 'm/s'.
-      club_horiz : the offset in horizontal
-      club_vert : the offset in vertical
-      ball_offset : the vector of the above two parameters
+      type : the value is fixed at 1,indicating it's a club data message. </br>
+      data : it's permanent. </br>
+      club_velocity : flying speed of club, Unit is 'm/s'. </br>
+      club_horiz : the offset in horizontal </br>
+      club_vert : the offset in vertical </br>
+      ball_offset : the vector of the above two parameters </br>
 
 ***we assume the club surface as a coordinate system, the origin is the center of club surface(see figure below)***
 
