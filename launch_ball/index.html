@@ -98,13 +98,13 @@
 
 .rainbow {
   width: 180px;
-  height: 1em;
+  height: 1.4em;
   position: relative;
   z-index: 1;
 
-
+/*
   background: linear-gradient(to right, #ff3232 0%, #ff9900 10%, #ffff00 17%, #ccff00 20%, #32ff00 30%, #00ff65 40%, #00ffff 50%, #0065ff 60%, #3300ff 70%, #cb00ff 81%, #ff0098 90%, #ff0004 100%);
-
+*/
   border: 0;
 }
 
@@ -112,7 +112,7 @@
   display: inline-block;
   position: absolute;
   width: 4px;
-  height: 1em;
+  height: 1.4em;
   margin: 0 -4px;
   top: 0;
   border-color: #fff;
@@ -152,6 +152,18 @@
   cursor: ew-resize;
 }
 
+#pitch {
+  background: linear-gradient(to right, #000000 0%, #ff0004 100%);
+}
+#backspin {
+  background: linear-gradient(to right, #000000 0%, #00ff04 100%);
+}
+#sidespin {
+  background: linear-gradient(to right, #000000 0%, #0000ff 100%);
+}
+#confidence {
+  background: linear-gradient(to right, #000000 0%, #ffff04 100%);
+}
     </style>
 
  
@@ -159,16 +171,22 @@
 
 <body>
   <div class="pickshell">
-    <div class="picker" data-xy="10,10">
+    <div class="picker" data-xy="91,118">
       <input type="text" class="change" name="change" value="" />
       <div class="board"><div class="choice"></div></div>
-      <div class="rainbow"></div>
+      <div id="pitch" class="rainbow">pitch 24</div>
+      <div id="backspin" class="rainbow">backspin 7880</div>
+      <div id="sidespin" class="rainbow">sidespin 367</div>
+      <div id="confidence" class="rainbow">confidence 0.9</div>
+      <button id="wait" class="ui-button ui-corner-all">Wait</button>
+      <button id="ready" class="ui-button ui-corner-all">Ready</button>
+      <button id="shot" class="ui-button ui-corner-all">Shot The Ball</button>
     </div>
   </div>
 
 
-    <script src='jquery.min.js'></script>
-    <script src='jquery-ui.min.js'></script>
+    <script src='jquery.js'></script>
+    <script src='jquery-ui.js'></script>
 
     <script src="index.js"></script>
 

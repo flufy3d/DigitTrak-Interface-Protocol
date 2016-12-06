@@ -7,44 +7,43 @@ jQuery.fn.pickify = function() {
 		$board = $picker.children('.board');
 		$choice = $board.children();
 		$rainbow = $picker.children('.rainbow');
-    
-		var colors = $picker.attr('data-xy').split(',');
-		$picker.data('xy', {x: colors[0], y: colors[1] })
 
-		$input.val("xy kenshin1987")
-
-		
 		// making things happen
 		$rainbow.slider({
-      	value: colors[0],
+      	value: 100,
       	min: 0,
       	max: 360,
-			slide: function(event, ui) {console.log(ui.value)},
-			stop: function() {console.log('$rainbow.slider stop')}
+			slide: function(event, ui) {console.log('slide:'+ui.value)},
+			stop: function() {}
     	})
+    
+		var xy = $picker.attr('data-xy').split(',');		
+		$picker.data('xy', {x: Number(xy[0]), y: Number(xy[1])})
+
 		$choice.draggable({
 			containment: '.board',
 			cursor: 'crosshair',
-			create: function() {$choice.css({'left': colors[1]*1.8, 'top': 180-colors[2]*1.8});},
-			drag: function(event, ui) {console.log(ui.position.left, ui.position.top)},
-			stop: function() {console.log('$choice.draggable stop')}
+			create: function() {change_xy($picker.data('xy').x,$picker.data('xy').y)},
+			drag: function(event, ui) {change_xy(ui.position.left, ui.position.top)},
+			stop: function() {}
 		});
 		$board.on('click', function(e) {
 			var left = e.pageX-$board.offset().left;
 			var top = e.pageY-$board.offset().top;
-			$choice.css({'left': left, 'top': top});
-
+			change_xy(left,top);
 		});
-		
 		
 		// input change
 		$input.keyup(function(e) {
-      if (e.which != (37||39)) {
-				inputChange($input.val());
-    	}
+			console.log($input.val())
 		});
-		function inputChange(val) {
-			console.log(val)
+
+		function change_xy(x,y)
+		{
+			$picker.data('xy', {x:x, y:y});
+			$choice.css({'left': x, 'top': y});
+			$input.val('D: '+ x + ' V: ' + y);
+			
 		}
 
 	
