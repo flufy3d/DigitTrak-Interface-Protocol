@@ -187,7 +187,7 @@ jQuery.fn.pickify = function() {
 		    websocket.onopen = function(evt) { console.log('onopen') };
 		    websocket.onclose = function(evt) { console.log('onclose');$connect.removeAttr('disabled');};
 		    websocket.onmessage = function(evt) { console.log(evt.data) };
-		    websocket.onerror = function(evt) { console.log('onerror');$connect.removeAttr('disabled');};
+		    websocket.onerror = function(evt) { alert('connect error');$connect.removeAttr('disabled');};
 
 		    $picker.data('websocket', websocket);
 
