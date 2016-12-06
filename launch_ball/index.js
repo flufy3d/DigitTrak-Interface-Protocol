@@ -1,4 +1,14 @@
 //refer to http://codepen.io/pouretrebelle/pen/udbFC
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+
 $(document).ready(function() {
 jQuery.fn.pickify = function() {
 	return this.each(function() {
@@ -83,17 +93,110 @@ jQuery.fn.pickify = function() {
 			var all_length = Math.sqrt(width*width + height*height)
 
 			var v = vec_length/all_length * 120.0
+			v = Number(v.toFixed(2))
 
 			var d = - Math.acos(vec.x/vec_length)/Math.PI * 180 + 90
+			d = Number(d.toFixed(2))
 
-			$input.val('D: '+ d.toFixed(2) + ' V: ' + v.toFixed(2));
+			$input.val('D: '+ d + ' V: ' + v);
 
 			$picker.data('yaw', d);
 			$picker.data('velocity', v);
 
 		}
 
-	
+		$wait = $picker.children('#wait');
+		$ready = $picker.children('#ready');
+		$shot = $picker.children('#shot');
+		$connect = $picker.children('#connect');
+		$url = $picker.children('#url');
+
+
+		$wait.on('click', function(e) {
+		    data = {}
+		    data.cmd = 5
+		    data.broadcast = {"state": 0}
+		    $picker.data('websocket').send(JSON.stringify(data));
+		});
+
+		$ready.on('click', function(e) {
+		    data = {}
+		    data.cmd = 5
+		    data.broadcast = {"state": 1}
+		    $picker.data('websocket').send(JSON.stringify(data));
+		});
+
+		$shot.on('click', function(e) {
+
+			if($picker.data('shotting') == 1)
+			{
+				console.log('shotting...');
+				return;
+			}
+			$picker.data('shotting',1)
+				
+
+			var websocket = $picker.data('websocket')
+
+			data = {}
+		    data.cmd = 5
+		    data.broadcast = {"state": 2}
+		    websocket.send(JSON.stringify(data));
+
+		    sleep(20)
+
+			data = {}
+		    data.cmd = 5
+		    data.broadcast = {
+		    	"data": {
+			    	"confidence": $picker.data('confidence'), 
+			    	"sidespin": $picker.data('sidespin'), 
+			    	"yaw": $picker.data('yaw'), 
+			    	"backspin": $picker.data('backspin'), 
+			    	"pitch": $picker.data('pitch'), 
+			    	"velocity": $picker.data('velocity')
+		    	}, 
+		    	"type": 0
+		    }
+		    websocket.send(JSON.stringify(data));
+
+
+			sleep(20)
+
+			data = {}
+		    data.cmd = 5
+		    data.broadcast = {"state": 3}
+		    websocket.send(JSON.stringify(data));
+
+		    setTimeout(function() {
+				data = {}
+			    data.cmd = 5
+			    data.broadcast = {"data": {"ball_offset": -0.02, "club_horiz": 0.54, "club_vert": 16, "club_velocity": 13.2}, "type": 1}
+			    websocket.send(JSON.stringify(data));
+			    $picker.data('shotting',0)
+		    },1000)
+
+
+		    
+
+		});
+
+		$connect.on('click', function(e) {
+			var url = $url[0].value
+		    var websocket = new WebSocket(url);
+		    websocket.onopen = function(evt) { console.log('onopen') };
+		    websocket.onclose = function(evt) { console.log('onclose');$connect.removeAttr('disabled');};
+		    websocket.onmessage = function(evt) { console.log(evt.data) };
+		    websocket.onerror = function(evt) { console.log('onerror');$connect.removeAttr('disabled');};
+
+		    $picker.data('websocket', websocket);
+
+
+			$wait.removeAttr('disabled');
+			$ready.removeAttr('disabled');
+			$shot.removeAttr('disabled');
+			$connect.attr('disabled','disabled');	    
+		});	
 
 	});
 };

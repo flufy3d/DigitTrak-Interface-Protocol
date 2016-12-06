@@ -13,6 +13,7 @@ def doSend(self,data):
     self.sendMessage(unicode(data_string))
     context['server'].serve()
 
+
 class SWSS(WebSocket):
 
     def handleMessage(self):
@@ -22,6 +23,15 @@ class SWSS(WebSocket):
         if jdata[u'cmd'] == 0 and u'cmd' in jdata:
             print 'set Standby.'
             context['standby'] = 1
+        elif jdata[u'cmd'] == 5 and u'cmd' in jdata:            
+            data = jdata[u'broadcast']
+            for client in clients:
+                #if client != self:
+                doSend(client,data)
+             
+
+
+
 
     def handleConnected(self):
         print self.address, 'connected'
