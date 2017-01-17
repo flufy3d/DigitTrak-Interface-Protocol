@@ -84,45 +84,7 @@ def main():
     init();
     while True:
         context['server'].serve()
-        if context['standby']  == 1:
-            context['standby'] = 0
 
-            data = {}
-            data['state'] = 0
-            print 'wait'
-            for client in clients:
-                doSend(client,data)
-
-            time.sleep(3)
-
-
-            data['state'] = 1
-            print 'ready'
-            for client in clients:
-                doSend(client,data)
-
-            time.sleep(3)
-
-
-            data['state'] = 2
-            print 'hit'
-            for client in clients:
-                doSend(client,data)
-
-
-            #send data
-            sendBallData()
-
-
-
-            data['state'] = 3
-            print 'hit complete'
-            for client in clients:
-                doSend(client,data)
-
-            time.sleep(1)
-
-            sendClubData()
 
 
 
